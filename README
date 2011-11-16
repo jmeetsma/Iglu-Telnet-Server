@@ -1,0 +1,56 @@
+Iglu Telnet Server is a command line telnet server written in Java.
+It provides a convenient way to create a backdoor in any Java server
+environment, such as JEE-solutions.
+
+This project contains sample implementations, using various components
+from Iglu Common: a socket server, a telnet adapter and command line invocation
+of objects. It demonstrates how to to make an object command line invokable by a
+telnet client.
+
+The Iglu Project explores simple and robust solutions for enterprise applications.
+Iglu is developed and maintained by Jeroen Meetsma, partner at IJsberg.
+E-mail: info@ijsberg.nl
+
+
+GETTING STARTED
+
+You'll need a Java SDK 1.6 or higher to build the project.
+
+1. Download sources from GitHub.
+2. Build project with Maven, or create a build configuration of your own.
+3. Examine and try provided samples of a server setup.
+
+N.B. The Maven build provided will also create a working distribution of a standalone server.
+
+
+SERVER SETUP
+
+This distribution contain two samples to show you how a telnet server can be set up.
+
+Sample 1: Set up an embedded telnet server.
+The class EmbeddedServer demonstrates how to configure and start a telnet server that
+can be embedded in your own code. EmbeddedServer can be run within an IDE so that you
+can easily try things out.
+
+Sample 2: Set up a standalone server environment.
+The class StandaloneTelnetServerConfiguration contains the setup for a complete
+runtime environment that can be run on a UNIX-like platform. It demonstrates that you don't
+need an application server to host Java server applications.*)
+
+It's easy to connect the telnet server to your own implementation. For both setups goes that you
+simply have to substitute the SampleInvokableObject by a class of your own.
+
+TESTING
+
+A server can be started from your IDE or by invoking the startServer script in a command shell.
+Connect to your server from a command shell by typing:
+
+telnet localhost 17623
+
+Windows doesn't provide telnet anymore, so you have to download Putty or some other telnet client.
+Make sure you run Putty with the -telnet argument.
+
+
+
+*) Iglu server configurations are perfectly suitable to run in an AWS micro instance
+

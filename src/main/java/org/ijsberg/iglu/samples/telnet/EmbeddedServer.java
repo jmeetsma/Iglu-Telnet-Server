@@ -20,6 +20,10 @@
 
 package org.ijsberg.iglu.samples.telnet;
 
+import org.ijsberg.iglu.samples.telnet.authentication.SampleAuthenticator;
+import org.ijsberg.iglu.samples.telnet.invocation.ProtectedObjectInvocationConnectionFactory;
+import org.ijsberg.iglu.server.connection.Connection;
+import org.ijsberg.iglu.server.connection.ConnectionFactory;
 import org.ijsberg.iglu.server.connection.invocation.ObjectInvocationConnectionFactory;
 import org.ijsberg.iglu.server.connection.socket.module.StandardSocketServer;
 
@@ -48,7 +52,10 @@ public class EmbeddedServer {
 		//setProperties overwrites default properties
 		socketServer.setProperties(properties);
 		//TODO provide your own invokable here ...
-		ObjectInvocationConnectionFactory connectionFactory = new ObjectInvocationConnectionFactory(new SampleInvokableObject());
+		ConnectionFactory connectionFactory = new ObjectInvocationConnectionFactory(new SampleInvokableObject());
+		//TODO uncomment next line to try password protected sessions (users to found in resources/users.properties)
+		//ConnectionFactory connectionFactory = new ProtectedObjectInvocationConnectionFactory
+		//		(new SampleInvokableObject(), new SampleAuthenticator());
 		socketServer.setConnectionFactory(connectionFactory);
 		socketServer.start();
 	}

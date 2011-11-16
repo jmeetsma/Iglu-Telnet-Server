@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 #
 # starts server
 
 SERVER_ROOT=$0
 STRLEN=${#SERVER_ROOT}
 CMDLEN=14
-SERVER_ROOT=${SERVER_ROOT:0:$STRLEN - CMDLEN}
+SERVER_ROOT=${SERVER_ROOT:0:STRLEN-CMDLEN}
 
 
 CLASSPATH=lib/iglu-1.0.2.jar

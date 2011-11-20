@@ -57,7 +57,7 @@ public class StandaloneServerConfiguration implements Configuration {
 	/**
 	 *
 	 */
-	private void configure() {
+	public StandaloneServerConfiguration() {
 
 		//Cluster connects related modules and takes care of dependency injection
 		Cluster core = new StandardCluster();
@@ -92,17 +92,17 @@ public class StandaloneServerConfiguration implements Configuration {
 		serverEnvironment.start();
 	}
 
+	@Override
+	public Map<String, Cluster> getClusters() {
+		return clusterMap;
+	}
 
 	/**
 	 *
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new StandaloneServerConfiguration().configure();
+		new StandaloneServerConfiguration();
 	}
 
-	@Override
-	public Map<String, Cluster> getClusters() {
-		return clusterMap;
-	}
 }

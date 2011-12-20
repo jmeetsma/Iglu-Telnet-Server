@@ -24,7 +24,7 @@
   <groupId>org.ijsberg.iglu</groupId>
   <artifactId>iglu-telnet-server</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.0.1</version>
   <name>Iglu-Telnet-Server</name>
   <url>http://iglu.ijsberg.org</url>
 
@@ -38,17 +38,17 @@
     <dependency>
       <groupId>org.ijsberg</groupId>
       <artifactId>iglu</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.ijsberg</groupId>
       <artifactId>iglu-common</artifactId>
-      <version>0.9.1</version>
+      <version>0.9.2-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.ijsberg</groupId>
       <artifactId>iglu-util</artifactId>
-      <version>0.9.0</version>
+      <version>0.9.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 

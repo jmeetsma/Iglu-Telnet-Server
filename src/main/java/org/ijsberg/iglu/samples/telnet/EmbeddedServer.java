@@ -20,9 +20,6 @@
 
 package org.ijsberg.iglu.samples.telnet;
 
-import org.ijsberg.iglu.samples.telnet.authentication.SampleAuthenticator;
-import org.ijsberg.iglu.samples.telnet.invocation.ProtectedObjectInvocationConnectionFactory;
-import org.ijsberg.iglu.server.connection.Connection;
 import org.ijsberg.iglu.server.connection.ConnectionFactory;
 import org.ijsberg.iglu.server.connection.invocation.ObjectInvocationConnectionFactory;
 import org.ijsberg.iglu.server.connection.socket.module.StandardSocketServer;

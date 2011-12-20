@@ -20,13 +20,14 @@
 
 package org.ijsberg.iglu.samples.telnet;
 
-import org.ijsberg.iglu.Cluster;
-import org.ijsberg.iglu.Component;
-import org.ijsberg.iglu.Configuration;
-import org.ijsberg.iglu.configuration.StandardCluster;
-import org.ijsberg.iglu.configuration.StandardComponent;
+import org.ijsberg.iglu.configuration.Assembly;
+import org.ijsberg.iglu.configuration.Cluster;
+import org.ijsberg.iglu.configuration.Component;
+import org.ijsberg.iglu.configuration.ConfigurationException;
+import org.ijsberg.iglu.configuration.module.ServerEnvironment;
+import org.ijsberg.iglu.configuration.module.StandardCluster;
+import org.ijsberg.iglu.configuration.module.StandardComponent;
 import org.ijsberg.iglu.invocation.RootConsole;
-import org.ijsberg.iglu.runtime.module.ServerEnvironment;
 import org.ijsberg.iglu.server.connection.ConnectionFactory;
 import org.ijsberg.iglu.server.connection.invocation.ObjectInvocationConnectionFactory;
 import org.ijsberg.iglu.server.connection.socket.SocketServer;
@@ -40,7 +41,7 @@ import java.util.Properties;
  * Sample class that embeds a Telnet Server in a standalone runtime environment.
  * The environment can be controlled using shell scripts.
  */
-public class StandaloneServerConfiguration implements Configuration {
+public class StandaloneServerConfiguration implements Assembly {
 
 	private Map clusterMap = new HashMap();
 
@@ -54,19 +55,23 @@ public class StandaloneServerConfiguration implements Configuration {
 		properties.setProperty("so_linger_time", "10");//s
 	}
 
+	Cluster core = new StandardCluster();
+
 	/**
+	 * @throws InstantiationException 
+	 * @throws ConfigurationException 
 	 *
 	 */
-	public StandaloneServerConfiguration() {
+	public void initialize(String[] args) {
 
 		//Cluster connects related modules and takes care of dependency injection
-		Cluster core = new StandardCluster();
 		clusterMap.put("core", core);
 
 		//ServerEnvironment takes care of starting and stopping runtime environment and individual modules
-		ServerEnvironment serverEnvironment = new ServerEnvironment();
+		ServerEnvironment serverEnvironment = new ServerEnvironment(this);
+
 		Component serverEnvironmentModule = new StandardComponent(serverEnvironment);
-		core.connect("ServerEnvironment", serverEnvironmentModule);
+//		core.connect("ServerEnvironment", serverEnvironmentModule);
 
 		//RootConsole makes modules in clusters callable from command shell (by invoke.sh or invoke.bat)
 		RootConsole rootConsole = new RootConsole(this);
@@ -92,17 +97,20 @@ public class StandaloneServerConfiguration implements Configuration {
 		serverEnvironment.start();
 	}
 
+
+	public static void main(String[] args) throws ConfigurationException, InstantiationException {
+		new StandaloneServerConfiguration().initialize(args);
+	}
+
 	@Override
 	public Map<String, Cluster> getClusters() {
 		return clusterMap;
 	}
 
-	/**
-	 *
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new StandaloneServerConfiguration();
+
+	@Override
+	public Cluster getCoreCluster() {
+		return core;
 	}
 
 }

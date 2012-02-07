@@ -50,6 +50,8 @@ telnet localhost 17623
 Windows doesn't provide telnet anymore, so you have to download Putty or some other telnet client.
 Make sure you run Putty with the -telnet argument.
 
+putty -telnet localhost 17623
+
 
 
 *) Iglu server configurations are perfectly suitable to run in an AWS micro instance

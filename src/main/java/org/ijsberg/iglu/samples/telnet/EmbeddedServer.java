@@ -21,7 +21,7 @@
 package org.ijsberg.iglu.samples.telnet;
 
 import org.ijsberg.iglu.server.connection.ConnectionFactory;
-import org.ijsberg.iglu.server.connection.invocation.ObjectInvocationConnectionFactory;
+import org.ijsberg.iglu.server.telnet.ObjectInvocationConnectionFactory;
 import org.ijsberg.iglu.server.connection.socket.module.StandardSocketServer;
 
 import java.util.Properties;

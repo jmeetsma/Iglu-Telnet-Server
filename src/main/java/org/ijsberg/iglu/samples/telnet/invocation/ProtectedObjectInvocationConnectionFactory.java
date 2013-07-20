@@ -22,7 +22,6 @@ package org.ijsberg.iglu.samples.telnet.invocation;
 
 import org.ijsberg.iglu.samples.telnet.authentication.NamePasswordAuthenticator;
 import org.ijsberg.iglu.server.connection.ConnectionFactory;
-import org.ijsberg.iglu.server.connection.invocation.CommandLineObjectInvoker;
 import org.ijsberg.iglu.server.connection.socket.ByteStreamReadingConnection;
 import org.ijsberg.iglu.server.telnet.TelnetAdapter;
 

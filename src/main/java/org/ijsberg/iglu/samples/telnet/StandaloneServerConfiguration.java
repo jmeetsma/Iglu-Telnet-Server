@@ -29,7 +29,7 @@ import org.ijsberg.iglu.configuration.module.StandardCluster;
 import org.ijsberg.iglu.configuration.module.StandardComponent;
 import org.ijsberg.iglu.invocation.RootConsole;
 import org.ijsberg.iglu.server.connection.ConnectionFactory;
-import org.ijsberg.iglu.server.connection.invocation.ObjectInvocationConnectionFactory;
+import org.ijsberg.iglu.server.telnet.ObjectInvocationConnectionFactory;
 import org.ijsberg.iglu.server.connection.socket.SocketServer;
 import org.ijsberg.iglu.server.connection.socket.module.StandardSocketServer;
 

@@ -22,7 +22,7 @@ package org.ijsberg.iglu.samples.telnet.invocation;
 
 import org.ijsberg.iglu.samples.telnet.authentication.NamePasswordAuthenticator;
 import org.ijsberg.iglu.server.connection.CommandLineClientAdapter;
-import org.ijsberg.iglu.server.connection.invocation.CommandLineObjectInvoker;
+import org.ijsberg.iglu.server.invocation.CommandLineObjectInvoker;
 
 /**
  */
